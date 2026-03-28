@@ -30,3 +30,4 @@ _site/
 Thumbs.db
 .vscode/
 .idea/
+/.quarto/

@@ -14,8 +14,9 @@ website:
 format:
   html:
     theme: cosmo
-    code-fold: true
+    # This line is the "magic" that tells Quarto to use Marimo for .py files
+    marimo: true 
 
-# This tells Quarto to use the Marimo engine
-extensions:
-  - marimo-team/quarto-marimo
+# Ensure the extension is listed here
+filters:
+  - marimo
