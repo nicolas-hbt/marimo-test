@@ -37,7 +37,7 @@ jobs:
         run: uv sync
 
       - name: Install Marimo Quarto Extension
-        run: quarto add --no-ask marimo-team/quarto-marimo
+        run: quarto add --no-prompt marimo-team/quarto-marimo
 
       - name: Render Website
         run: uv run quarto render
