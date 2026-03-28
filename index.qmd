@@ -1,0 +1,8 @@
+---
+title: "Trying out Marimo"
+---
+
+Welcome to my interactive exploration of Marimo.
+
+### Featured Explorations
+- [Linear Regression Fundamentals](chapters/linear-regression.py) - Tweak the slope and intercept to fit a data cloud.

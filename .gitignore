@@ -1,0 +1,32 @@
+# --- Python & Virtual Environments ---
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+.python-version
+
+# --- uv (Python Package Manager) ---
+# We keep pyproject.toml and uv.lock, but ignore the cache
+.uv/
+
+# --- Marimo (Notebooks) ---
+# Ignore the hidden marimo directory (cache, session data, etc.)
+__marimo__/
+# Optional: if you export to html/ipynb locally and don't want them in git
+# chapters/*.html
+# chapters/*.ipynb
+
+# --- Quarto (Website Build) ---
+# The folder where the website is generated
+_site/
+# Quarto's internal scratch and cache
+.quarto/
+# If you use environment variables for keys/secrets
+/_*.local
+.env
+
+# --- System & IDEs ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

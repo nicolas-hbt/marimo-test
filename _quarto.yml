@@ -1,0 +1,21 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "marimo test"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: chapters/linear-regression.py
+        text: "01: Linear Regression"
+
+format:
+  html:
+    theme: cosmo
+    code-fold: true
+
+# This tells Quarto to use the Marimo engine
+extensions:
+  - marimo-team/quarto-marimo
