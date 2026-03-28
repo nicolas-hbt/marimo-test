@@ -1,0 +1,52 @@
+name: Deploy test to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+
+# Required permissions for the "Modern Way" (GitHub Actions Source)
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Set up Python (via uv)
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - name: Install Python Dependencies
+        run: uv sync
+
+      - name: Install Marimo Quarto Extension
+        run: quarto add --no-ask marimo-team/quarto-marimo
+
+      - name: Render Website
+        run: uv run quarto render
+
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./_site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
